@@ -1,0 +1,21 @@
+.profile__button_refactoring {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 1px solid white;
+  top: 15px;
+  right: 0;
+  background-image: url(../../../../images/redacting.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-size: cover; */
+}
+
+@media screen and (max-width: 719px){
+  .profile__button_refactoring {
+    margin: 0;
+    top: 8px;
+    width: 18px;
+    height: 18px;
+  }
+}
