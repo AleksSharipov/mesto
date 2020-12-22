@@ -13,7 +13,6 @@ function newPopup(popup) {
   popup.classList.toggle('popup_opened');
   refName.value = profileName.textContent;
   refWork.value = profileDescr.textContent;
-  console.log(refName)
 }
 
 popupForm.addEventListener('submit', function (e) {
