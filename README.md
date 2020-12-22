@@ -12,3 +12,6 @@
 * БЭМ Nested
 * адаптивная верстка
 * реализован попап с помощью JS
+
+
+* https://alekssharipov.github.io/mesto/
