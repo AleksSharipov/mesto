@@ -1,1 +1,14 @@
-
+.elements__like {
+    background-color: white;
+    box-sizing: border-box;
+    border: 1px solid white;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    background-image: url(../../../images/like.svg);
+    /* background-image: url(../../../images/like.png); */
+    background-repeat: no-repeat;
+    background-position: center;
+}

@@ -21,6 +21,7 @@
 @import url('../blocks/profile/__description/profile__description.css');
 @import url('../blocks/profile/__button/profile__button.css');
 @import url('../blocks/profile/__button/_refactoring/profile__button_refactoring.css');
+@import url('../blocks/profile/__name-refactoring/profile__name-refactoring.css');
 
 /* button-active */
 

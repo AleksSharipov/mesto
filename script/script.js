@@ -1,10 +1,9 @@
 let refactoringBtn = document.querySelector('.profile__button_refactoring');
 let popupRefactoring = document.querySelector('.popup');
 let closeBtn = document.querySelector('.popup__close');
-let popup = document.querySelector('.popup');
-let popupForm = popup.querySelector('.popup__form');
-let refName = document.querySelector('.popup__form-input_name');
-let refWork = document.querySelector('.popup__form-input_work');
+let popupForm = popupRefactoring.querySelector('.popup__form');
+let refName = popupRefactoring.querySelector('.popup__form-input_name');
+let refWork = popupRefactoring.querySelector('.popup__form-input_work');
 
 let profileName = document.querySelector('.profile__title');
 let profileDescr = document.querySelector('.profile__description');
@@ -30,8 +29,8 @@ closeBtn.addEventListener('click', function () {
   newPopup(popupRefactoring);
 })
 
-popup.addEventListener('click', function (e) {
-  if (e.target === popup) {
+popupRefactoring.addEventListener('click', function (e) {
+  if (e.target === popupRefactoring) {
     newPopup(popupRefactoring);
   }
 })
