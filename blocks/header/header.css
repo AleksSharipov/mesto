@@ -2,10 +2,11 @@
   margin: 45px auto 0;
   padding: 0;
   max-width: 880px;
-  min-height: 74px;
+  /* min-height: 74px; */
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  border-bottom-color: #545454;
+  border-bottom-color: rgba(84, 84, 84, .7);;
+  padding-bottom: 41px;
   /* padding-left: 27px; */
 }
 
@@ -13,5 +14,6 @@
   .header {
     /* width: 100%; */
     padding-left: 27px;
+    padding-bottom: 31px;
   }
 }

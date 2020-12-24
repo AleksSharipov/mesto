@@ -7,6 +7,9 @@
   padding: 34px 36px 37px;
   color: black;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 @media screen and (max-width: 767px){
