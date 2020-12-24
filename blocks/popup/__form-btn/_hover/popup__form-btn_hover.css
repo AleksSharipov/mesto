@@ -1,0 +1,7 @@
+.popup__form-btn_hover {
+  transition: .3s;
+}
+
+.popup__form-btn_hover {
+  opacity: .8;
+}
