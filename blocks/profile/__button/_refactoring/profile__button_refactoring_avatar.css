@@ -3,8 +3,6 @@
   height: 24px;
   border: 1px solid white;
   background-image: url(../../../../images/redacting.svg);
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 @media screen and (max-width: 719px){
