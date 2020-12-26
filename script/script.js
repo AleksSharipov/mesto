@@ -2,8 +2,8 @@ let refactoringBtn = document.querySelector('.profile__button_refactoring_avatar
 let popupRefactoring = document.querySelector('.popup');
 let closeBtn = document.querySelector('.popup__close');
 let popupForm = popupRefactoring.querySelector('.popup__form');
-let refName = popupRefactoring.querySelector('.popup__input_name');
-let refWork = popupRefactoring.querySelector('.popup__input_work');
+let refName = popupRefactoring.querySelector('.popup__input_type_name');
+let refWork = popupRefactoring.querySelector('.popup__input_type_work');
 
 let profileName = document.querySelector('.profile__title');
 let profileDescr = document.querySelector('.profile__description');
