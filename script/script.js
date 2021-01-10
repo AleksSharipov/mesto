@@ -144,14 +144,14 @@ popupAddCard.addEventListener('click', function (e) {
   if (e.target === popupAddCard) {
     closePopup(popupAddCard);
   }
-  const nameVal = document.querySelector('.popup__input_type_card_name').value;
+  const nameVal = document.querySelector('.popup__input_type_card-name').value;
 })
 
 popupAddCard.addEventListener('submit', function (e) {
   e.preventDefault();
   const elemCard = document.querySelector('.element');
-  const nameVal = document.querySelector('.popup__input_type_card_name').value;
-  const imgVal = document.querySelector('.popup__input_type_img_links').value;
+  const nameVal = document.querySelector('.popup__input_type_card-name').value;
+  const imgVal = document.querySelector('.popup__input_type_img-links').value;
 
   const elementList = createElement('li', 'element__list');
   const btnTrash = createElement('button', 'element__trash');
@@ -165,6 +165,7 @@ popupAddCard.addEventListener('submit', function (e) {
 
   elemTitle.textContent = nameVal;
   elImages.src = imgVal;
+  elImages.alt = nameVal;
 
   elemDescr.append(elemTitle, elemLike);
   elementList.append(elImages, btnTrash, elemDescr);
