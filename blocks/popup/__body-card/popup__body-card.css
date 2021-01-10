@@ -1,0 +1,16 @@
+.popup__body-card {
+  background: none;
+  max-width: none;
+  width: auto;
+  color: white;
+  padding: 0;
+
+}
+
+@media screen and (max-width: 767px){
+  .popup__body-card {
+    max-width: calc(100% - 80px);
+    width: 100%;
+    padding: 0;
+  }
+}
