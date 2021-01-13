@@ -28,6 +28,9 @@
       <button class="profile__button profile__button_add_card button-hover" type="button"></button>
     </section>
     <section class="elements">
+      <ul class="element">
+
+      </ul>
       <!-- <ul class="element">
         <li class="element__list">
           <button class="element__trash button-hover"></button>
@@ -80,11 +83,22 @@
     <p class="footer__author">2020 Mesto Russia</p>
   </footer>
 
-  <section class="popup ">
+  <template id="card-template">
+    <li class="element__list">
+      <button class="element__trash button-hover"></button>
+      <img class="element__images" src="" alt="">
+      <div class="element__description">
+        <h3 class="element__title"></h3>
+        <button class="element__like button-hover" type="button"></button>
+      </div>
+    </li>
+  </template>
+
+  <section class="popup popup-edit">
     <div class="popup__body">
       <button class="popup__close button-hover" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form" action="" name="popup-refactoring">
+      <form class="popup__form popup__form-edit" action="" name="popup-refactoring">
         <input class="popup__input popup__input_type_name" type="text" name="user-name">
         <input class="popup__input popup__input_type_work" type="text" name="description">
         <button class="popup__form-btn" type="submit">Сохранить</button>
