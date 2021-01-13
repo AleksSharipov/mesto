@@ -79,6 +79,7 @@ function createCard(link, name) {
   return cardElement;
 }
 
+
 initialCards.forEach(elem => {
   const el = createCard(elem.link, elem.name);
   ulElement.append(el);
