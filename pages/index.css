@@ -59,5 +59,6 @@
 @import url('../blocks/popup/__body-card/popup__body-card.css');
 @import url('../blocks/popup/__img/popup__img.css');
 @import url('../blocks/popup/popup-show-card.css');
+@import url('../blocks/popup/__input/_type/popup__input_type_error.css');
 @import url('../blocks/popup/__error/_visible/popup__error_visible.css');
 @import url('../blocks/popup/__form-btn/_disabled/popup__form-btn_disabled.css');
