@@ -1,0 +1,6 @@
+.popup__form-btn_disabled {
+  color: #B8B8B8;
+  background-color: #EDEDED;
+  pointer-events: none;
+  user-select: none;
+}

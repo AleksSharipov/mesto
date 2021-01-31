@@ -24,7 +24,7 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-const a = null;
+
 const popups = document.querySelectorAll('.popup');
 
 /*edit */
@@ -105,6 +105,13 @@ popups.forEach(popup => {
   })
 })
 
+document.addEventListener('keydown', function (e) {
+  const popup = document.querySelector('.popup_opened');
+  if (e.key === 'Escape' && popup) {
+    closePopup(popup);
+  }
+})
+
 /*popup Edit */
 refactoringBtn.addEventListener('click', function () {
   openPopup(popupRefactoring);
@@ -113,7 +120,7 @@ refactoringBtn.addEventListener('click', function () {
 })
 
 profileForm.addEventListener('submit', function (e) {
-  e.preventDefault();
+  // e.preventDefault();
   profileName.textContent = refName.value;
   profileDescr.textContent = refWork.value;
   closePopup(popupRefactoring)
@@ -126,7 +133,7 @@ addCardBtn.addEventListener('click', function () {
 })
 
 popupFormAdd.addEventListener('submit', function (e) {
-  e.preventDefault();
+  // e.preventDefault();
   const nameNewCard = popupFormAdd.querySelector('.popup__input_type_card-name').value;
   const linkNewCard = popupFormAdd.querySelector('.popup__input_type_img-links').value;
   const el = createCard(linkNewCard, nameNewCard)
