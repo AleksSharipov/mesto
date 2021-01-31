@@ -88,10 +88,21 @@ initialCards.forEach(elem => {
 /* логика popup */
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  // closePopupWithBtn();
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closePopup(popup);
+    }
+  })
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closePopup(popup);
+    }
+  })
 }
 
 popups.forEach(popup => {
@@ -103,13 +114,6 @@ popups.forEach(popup => {
       closePopup(popup);
     }
   })
-})
-
-document.addEventListener('keydown', function (e) {
-  const popup = document.querySelector('.popup_opened');
-  if (e.key === 'Escape' && popup) {
-    closePopup(popup);
-  }
 })
 
 /*popup Edit */
