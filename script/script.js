@@ -96,28 +96,23 @@ initialCards.forEach(elem => {
   ulElement.append(el);
 })
 
-function closePopupEsc() {
-  for (let i = 0; i < popups.length; i++) {
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') {
-        closePopup(popups[i]);
-      }
-    })
+function closePopupEsc(e) {
+  const activePopup = document.querySelector('.popup_opened');
+  if (e.key === 'Escape' && activePopup) {
+    closePopup(activePopup);
   }
-
 }
 
 /* логика popup */
 function openPopup(popup) {
   popup.classList.add('popup_opened');
 
-  closePopupEsc()
+  document.addEventListener('keydown', closePopupEsc)
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-
-  closePopupEsc()
+  document.removeEventListener('keydown', closePopupEsc)
 }
 
 popups.forEach(popup => {
@@ -151,12 +146,14 @@ addCardBtn.addEventListener('click', function () {
   openPopup(popupAddCard);
 })
 
-popupFormAdd.addEventListener('submit', function (e) {
-  // e.preventDefault();
+popupFormAdd.addEventListener('submit', function () {
   const nameNewCard = popupFormAdd.querySelector('.popup__input_type_card-name').value;
   const linkNewCard = popupFormAdd.querySelector('.popup__input_type_img-links').value;
   const btn = popupFormAdd.querySelector('.popup__form-btn');
   btn.classList.add('popup__form-btn_disabled');
+
+  btn.disabled = true;
+
   const el = createCard(linkNewCard, nameNewCard)
 
   ulElement.prepend(el);
