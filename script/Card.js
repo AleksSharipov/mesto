@@ -1,8 +1,3 @@
-const popup = document.querySelector('.popup-show-card');
-const popupImg = document.querySelector('.popup__img');
-const popupName = document.querySelector('.popup__name');
-const popupCloseBtn = document.querySelector('.popup__close');
-
 
 export default class Card {
   constructor(data, cardSelector, handleCardClick) {
@@ -31,11 +26,6 @@ export default class Card {
     this._element.querySelector('.element__images').addEventListener('click', (e) => {
       this._handleCardClick(this._name, this._link);
     })
-
-    popupCloseBtn.addEventListener('click', () => {
-      this._handleClosePopup();
-    })
-
   }
 
   generateCard() {
