@@ -5,10 +5,11 @@ const popupCloseBtn = document.querySelector('.popup__close');
 
 
 export default class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector, handleCardClick) {
     this._link = data.link;
     this._name = data.name;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -28,38 +29,13 @@ export default class Card {
     })
 
     this._element.querySelector('.element__images').addEventListener('click', (e) => {
-      this._handleOpenPopup()
-
-      document.addEventListener('keydown', (e) => {
-        const activePopup = document.querySelector('.popup_opened');
-        if (e.key === 'Escape' && activePopup) {
-          this._handleClosePopup(activePopup);
-        }
-      })
+      this._handleCardClick(this._name, this._link);
     })
 
     popupCloseBtn.addEventListener('click', () => {
       this._handleClosePopup();
-
-      document.removeEventListener('keydown', (e) => {
-        const activePopup = document.querySelector('.popup_opened');
-        if (e.key === 'Escape' && activePopup) {
-          this._handleClosePopup(activePopup);
-        }
-      })
     })
 
-  }
-
-  _handleOpenPopup() {
-    popupImg.src = this._link;
-    popupName.textContent = this._name;
-    popup.classList.add('popup_opened');
-  }
-
-  _handleClosePopup() {
-    popupImg.src = '';
-    popup.classList.remove('popup_opened');
   }
 
   generateCard() {
