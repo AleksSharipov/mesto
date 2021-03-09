@@ -7,6 +7,7 @@ export default class Popup {
   open() {
     this._popupSelector.classList.add('popup_opened');
     this._handleEscClose();
+<<<<<<< HEAD
 
     this._popupSelector.addEventListener('click', () => {
       if (this._popupSelector.classList.contains('popup_opened')) {
@@ -15,6 +16,11 @@ export default class Popup {
       if (this._popupSelector.classList.contains('popup__close')) {
         this.close();
       }
+=======
+    this.setEventListeners();
+    this._popClose.addEventListener('click', () => {
+      this.close()
+>>>>>>> 36d24c7f747941981492aa280aebdafc49419392
     })
   }
 
@@ -31,6 +37,7 @@ export default class Popup {
   }
 
   setEventListeners() {
+<<<<<<< HEAD
     this._popupSelector.addEventListener('click', () => {
       if (this._popupSelector.classList.contains('popup_opened')) {
         this.close();
@@ -38,6 +45,10 @@ export default class Popup {
       if (this._popupSelector.classList.contains('popup__close')) {
         this.close();
       }
+=======
+    this._popClose.addEventListener('click', () => {
+      this.close()
+>>>>>>> 36d24c7f747941981492aa280aebdafc49419392
     })
   }
 }
