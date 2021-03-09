@@ -4,18 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
   <title>Mesto</title>
 </head>
 
 <body class="root">
   <header class="header">
-    <img class="header__logo" src="./images/logo.svg" alt="Логотип Mesto russia">
+    <img class="header__logo" src="<%=require('./images/logo.png')%>" alt="Логотип Mesto russia">
   </header>
   <main>
     <section class="profile">
       <div class="profile__card">
-        <img class="profile__avatar" src="./images/avatar.png" alt="Аватарка">
+        <img class="profile__avatar" src="<%=require('./images/avatar.png')%>" alt="Аватарка">
         <div class="profile__info">
           <div class="profile__name-refactoring">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -87,12 +86,6 @@
       <h2 class="popup__name"></h2>
     </div>
   </section>
-
-  <script type="module" src="./script/script.js"></script>
-  <script type="module" src="./script/Card.js"></script>
-  <script type="module" src="./script/FormValidator.js"></script>
-
-
 </body>
 
 </html>
