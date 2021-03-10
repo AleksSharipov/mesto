@@ -12,12 +12,7 @@ export default class PopupWithForm extends Popup {
     this._inputList = Array.from(this._popupSelector.querySelectorAll('.popup__input'));
     this._formValues = {};
     this._inputList.forEach(input => {
-      console.log(this._inputList)
-
-      if (input !== '') {
-        this._formValues[input.name] = input.value
-      }
-
+      this._formValues[input.name] = input.value
     })
     return this._formValues;
   }
@@ -27,14 +22,13 @@ export default class PopupWithForm extends Popup {
       e.preventDefault();
 
       this._submitCallback(this._getInputValues());
-      this._btn.classList.add('popup__form-btn_disabled');
-      this._btn.disabled = true;
-      this.close();
+
     })
+    super.setEventListeners()
   }
 
   close() {
     this._popupSelector.querySelector('.popup__form').reset();
-    super.close()
+    super.close();
   }
 }
