@@ -44,20 +44,14 @@ const configValidation = {
 };
 
 const formList = document.querySelectorAll('.popup__form');
-const popups = document.querySelectorAll('.popup');
 
 /*edit */
 const refactoringBtn = document.querySelector('.profile__button_refactoring_avatar');
 const popupRefactoring = document.querySelector('.popup-edit');
-const profileForm = popupRefactoring.querySelector('.popup__form-edit');
 const refName = popupRefactoring.querySelector('.popup__input_type_name');
 const refWork = popupRefactoring.querySelector('.popup__input_type_work');
-const profileName = document.querySelector('.profile__title');
-const profileDescr = document.querySelector('.profile__description');
 
 /* Add card */
-const popupAddCard = document.querySelector('.popup-add-card');
-const popupFormAdd = popupAddCard.querySelector('.popup__form-add-card');
 const addCardBtn = document.querySelector('.profile__button_add_card');
 
 /* Добавляем все карточки */
@@ -65,7 +59,6 @@ const ulElement = document.querySelector('.element');
 
 formList.forEach(anyForm => {
   const validForm = new FormValidator(configValidation, anyForm);
-
   anyForm.addEventListener('submit', (e) => {
     e.preventDefault();
   })
@@ -79,7 +72,8 @@ popupWithImage.setEventListeners();
 const cardList = new Section({
   data: initialCards,
   rendered: (item) => {
-    createCard(item)
+    const el = createCard(item);
+    ulElement.append(el)
   }
 }, '.element');
 
@@ -89,13 +83,13 @@ function createCard(obj) {
   const el = new Card(obj, '#card-template', () => {
     popupWithImage.open(obj.link, obj.name);
   });
-  ulElement.append(el.generateCard());
+  return el.generateCard();
 }
 
 const userInfo = new UserInfo('.profile__title', '.profile__description');
-// console.log(userInfo.getUserInfo());
 const popupRefCard = new PopupWithForm('.popup-edit', (inpVal) => {
-  userInfo.setUserInfo(inpVal['user-name'], inpVal['description'])
+  userInfo.setUserInfo(inpVal['user-name'], inpVal['description']);
+  popupRefCard.close();
 });
 popupRefCard.setEventListeners();
 
@@ -113,13 +107,10 @@ const popAddCard = new PopupWithForm('.popup-add-card', (inpVal) => {
     name: inpVal["user-name"],
     link: inpVal["description"]
   }
-  const card = new Card(addObj, '#card-template', () => {
-    popupWithImage.open(addObj.link, addObj.name);
-  });
-  const cardElem = card.generateCard();
-  if (addObj["name"] !== '' && addObj["link"]) {
-    cardList.addItem(cardElem)
-  }
+  const cardElem = createCard(addObj)
+
+  cardList.addItem(cardElem);
+  popAddCard.close();
 })
 popAddCard.setEventListeners();
 
