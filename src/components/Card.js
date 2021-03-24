@@ -1,6 +1,6 @@
 
 export default class Card {
-  constructor(data, cardSelector, handleCardClick, api) {
+  constructor(data, cardSelector, handleCardClick, api, popclose) {
     this._link = data.link;
     this._name = data.name;
     this._cardSelector = cardSelector;
@@ -8,6 +8,7 @@ export default class Card {
     this._counterCardLike = data.likes;
     this._api = api;
     this._data = data
+    this._popclose = popclose;
   }
 
   _getTemplate() {
@@ -16,17 +17,20 @@ export default class Card {
     return cardElement;
   }
 
+
+
   _setEventListener() {
+
     this._element.querySelector('.element__trash').addEventListener('click', (e) => {
-      console.log(this._data._id)
-      e.target.closest('.element__list').remove();
-      // this._api.deleteCard(this._data._id)
-      //   .then(() => {
-      //
-      //   })
-      //   .catch((err => {
-      //     console.log(`Ошибка при удаление ${err}`);
-      //   }))
+      this._popclose.addEventListener('click', () => {
+        this._api.deleteCard(this._data._id)
+          .then(() => {
+            e.target.closest('.element__list').remove();
+          })
+          .catch((err => {
+            console.log(`Ошибка при удаление ${err}`);
+          }))
+      })
 
     })
 
@@ -64,6 +68,7 @@ export default class Card {
   }
 
   generateCard(id) {
+
     this._element = this._getTemplate();
     this.counter = this._element.querySelector('.element__counter')
 

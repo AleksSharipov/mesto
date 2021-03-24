@@ -64,13 +64,7 @@ api.getCard()
             popupDelCard.open()
           })
           popBtn.addEventListener('click', () => {
-            api.deleteCard(item._id)
-              .then(() => {
-                popupDelCard.close()
-              })
-              .catch((err => {
-                console.log(`Ошибка при удаление ${err}`);
-              }))
+            popupDelCard.close();
 
           })
         }
@@ -94,15 +88,9 @@ api.getCard()
           cardTrash.addEventListener('click', () => {
             popupDelCard.open()
           })
+          console.log(cardElem)
           popBtn.addEventListener('click', () => {
-            api.deleteCard(res._id)
-              .then(() => {
-                popupDelCard.close()
-              })
-              .catch((err => {
-                console.log(`Ошибка при удаление ${err}`);
-              }))
-
+            popupDelCard.close();
           })
 
           cardList.addItem(cardElem);
@@ -123,7 +111,9 @@ api.getCard()
 const popBtn = document.querySelector('.popup__form-btn_del')
 
 
-const popupDelCard = new PopupWithForm('.popup-delite-card', (inpVal) => { })
+const popupDelCard = new PopupWithForm('.popup-delite-card', (inpVal) => {
+
+})
 
 popupDelCard.setEventListeners()
 
@@ -144,7 +134,7 @@ popupWithImage.setEventListeners();
 function createCard(obj) {
   const el = new Card(obj, '#card-template', () => {
     popupWithImage.open(obj.link, obj.name);
-  }, api);
+  }, api, popBtn);
   return el.generateCard(id);
 }
 const btnPopup = document.querySelector('.popup__form-btn_a');
@@ -165,8 +155,6 @@ const popupRefCard = new PopupWithForm('.popup-edit', (inpVal) => {
 });
 popupRefCard.setEventListeners();
 
-
-console.log(btnPopup.textContent)
 const newProfileAvater = new PopupWithForm('.popup-update-avatar', (inpVal) => {
 
   api.newUserAvatar(inpVal.description)
