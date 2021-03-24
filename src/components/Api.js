@@ -1,5 +1,3 @@
-import { result } from "lodash";
-
 export default class Api {
   constructor(token, cohortId) {
     this.token = token;
