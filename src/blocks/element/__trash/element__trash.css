@@ -13,4 +13,9 @@
   position: absolute;
   top: 18px;
   right: 15px;
+  display: none;
+}
+
+.element__trash-d {
+  display: block;
 }
