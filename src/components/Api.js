@@ -20,9 +20,6 @@ export default class Api {
         }
         return Promise.reject(new Error(`Шэф, усё пропало ${res.status}`))
       })
-      .catch(err => {
-        return Promise.reject(err);
-      })
   }
 
   getUserInfo() {
@@ -38,9 +35,6 @@ export default class Api {
           return res.json();
         }
         return Promise.reject(new Error(`Шэф, усё пропало ${res.status}`))
-      })
-      .catch(err => {
-        return Promise.reject(err);
       })
   }
 
@@ -62,9 +56,6 @@ export default class Api {
         }
         return Promise.reject(new Error(`Шэф, усё пропало ${res.status}`))
       })
-      .catch(err => {
-        return Promise.reject(err);
-      })
   }
 
   renameUserInfo(newName, newAbout) {
@@ -85,9 +76,6 @@ export default class Api {
         }
         return Promise.reject(new Error(`Шэф, усё пропало ${res.status}`))
       })
-      .catch(err => {
-        return Promise.reject(err);
-      })
   }
 
   newUserAvatar(linkNewAvatar) {
@@ -107,9 +95,6 @@ export default class Api {
         }
         return Promise.reject(new Error(`Шэф, усё пропало ${res.status}`));
       })
-      .catch(err => {
-        Promise.reject(err)
-      })
   }
 
   deleteCard(id) {
@@ -125,9 +110,6 @@ export default class Api {
           return res.json();
         }
         return Promise.reject(new Error(`Шэф, усё пропало ${res.status}`))
-      })
-      .catch(err => {
-        return Promise.reject(err);
       })
   }
 
@@ -146,12 +128,9 @@ export default class Api {
           return Promise.reject(new Error(`Шэф, усё пропало ${res.status}`))
         }
       })
-      .catch(err => {
-        return Promise.reject(err);
-      })
   }
 
-  deliteLike(id) {
+  deleteLikeCard(id) {
     return fetch(`https://mesto.nomoreparties.co/v1/${this.cohortId}/cards/likes/${id}`, {
       method: 'DELETE',
       headers: {
@@ -166,38 +145,6 @@ export default class Api {
           return Promise.reject(new Error(`Шэф, усё пропало ${res.status}`))
         }
       })
-      .catch(err => {
-        return Promise.reject(err);
-      })
   }
 
-  // editUserCard(name, userDescription) {
-  //   return fetch(`https://mesto.nomoreparties.co/v1/${this.cohortId}/users/me`, {
-  //     method: 'PATCH',
-  //     headers: {
-  //       authorization: this.token,
-  //     },
-  //     body: JSON.stringify({
-  //       name: name,
-  //       about: userDescription
-  //     })
-  //   })
-  //     .then(res => {
-  //       return res.json();
-  //     })
-  // }
 }
-
-/*
-Токен: d1b254cd-47f5-43a0-a278-b7e222ba6292
-Идентификатор группы: cohort-21
-
-получить список всех карточек в виде массива (GET)
-добавить карточку (POST)
-удалить карточку (DELETE)
-получить данные пользователя (GET)
-заменить данные пользователя (PATCH)
-заменить аватар (PATCH)
-“залайкать” карточку (PUT)
-удалить лайк карточки (DELETE)
-*/
