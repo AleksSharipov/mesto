@@ -4,7 +4,6 @@ export default class PopupWithDelele extends Popup {
   constructor({ popupSelector, submitCallback }) {
     super(popupSelector);
     this._popup = document.querySelector(popupSelector);
-    // this._popup = super.returnPopup()
     this.submitCallback = submitCallback;
   }
 

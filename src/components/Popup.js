@@ -36,8 +36,4 @@ export default class Popup {
       this.close();
     })
   }
-
-  returnPopup() {
-    return this._popupElement;
-  }
 }
