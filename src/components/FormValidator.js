@@ -67,20 +67,9 @@ export default class FormValidator {
     })
   }
 
-  enableButtonValidation() {
-    this._validForm.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-      this.deactivateButton();
-    });
-
-    this.enableValidation();
-  }
-
   disableInputError() {
     this._inputList.forEach(inputElement => {
       this._hideInputError(inputElement);
     })
   }
-
-
 }
