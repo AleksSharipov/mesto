@@ -23,7 +23,7 @@ export default class Card {
     // console.log(this._element)
     this._setEventListener();
     this._deleteIcon();
-    this.likeSpan(this._data);
+    this.likeHandler(this._data);
 
     this._elementTitle = this._element.querySelector('.element__title');
     this._elementImage.src = this._link;
@@ -43,7 +43,7 @@ export default class Card {
     }
   }
 
-  likeSpan(data) {
+  likeHandler(data) {
     this._data = data;
     // console.log(this._data)
     this._counterLike.textContent = this._data.likes.length;

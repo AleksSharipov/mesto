@@ -1,8 +1,8 @@
 export default class UserInfo {
   constructor(nameSelector, descriptionSelector, avatar, id) {
-    this._profileName = document.querySelector(nameSelector);
-    this._profileDescription = document.querySelector(descriptionSelector);
-    this._profileAvatar = document.querySelector(avatar)
+    this._profileName = nameSelector;
+    this._profileDescription = descriptionSelector;
+    this._profileAvatar = avatar;
 
     this._id = id;
   }
@@ -18,13 +18,25 @@ export default class UserInfo {
 
   /*Add */
   setUserInfo(name, profession, avatar, id) {
-    if (name, profession, avatar, id) {
+    if (name) {
       this._profileName.textContent = name;
+    } else {
+      console.log('Данные NAME с сервера не получены...')
+    }
+    if (profession) {
       this._profileDescription.textContent = profession;
+    } else {
+      console.log('Данные PROFESSION с сервера не получены...')
+    }
+    if (avatar) {
       this._profileAvatar.src = avatar
+    } else {
+      console.log('Данные AVATAR с сервера не получены...')
+    }
+    if (id) {
       this._id = id
     } else {
-      console.log('Данные с сервера не получены...')
+      console.log('Данные ID с сервера не получены...')
     }
 
   }
