@@ -39,6 +39,10 @@ const profileAvatar = document.querySelector('.profile__avatar');
 const popupRefactoring = document.querySelector('.popup-edit');
 const refName = popupRefactoring.querySelector('.popup__input_type_name');
 const refWork = popupRefactoring.querySelector('.popup__input_type_work');
+const redactAvatarBtn = document.querySelector('.profile__redact');
+const element = '.element';
+const selectorElementList = '.element__list';
+const cardTemplate = '#card-template';
 
 const api = new Api(token, cohortId);
 
@@ -78,11 +82,11 @@ function createCard(obj, user, cardSelectror) {
 const cardList = new Section({
   data: {},
   rendered: (obj, user) => {
-    const card = createCard(obj, user, '#card-template');
+    const card = createCard(obj, user, cardTemplate);
     const oneCard = card.generateCard();
     cardList.appendItem(oneCard);
   },
-}, '.element');
+}, element);
 
 const userInfo = new UserInfo(profileTitle, profileDescription, profileAvatar);
 
@@ -119,7 +123,6 @@ Promise.all(allPromises)
       formRedactAvatarSelector.reset()
       editAvatarPopup.open()
     })
-
   })
 
 const popupDelCard = new PopupWithDelele({
@@ -128,9 +131,8 @@ const popupDelCard = new PopupWithDelele({
     renderLoading(popupDeleteCardSelector, true)
     api.deleteCard(id)
       .then(() => {
-        element.closest('.element__list').remove()
+        element.closest(selectorElementList).remove()
         popupDelCard.close();
-
       })
       .catch((err) => {
         console.log(err)
@@ -172,7 +174,7 @@ const popupAddCard = new PopupWithForm(popupAddCardSelector, (value) => {
     link: value["description"]
   })
     .then(res => {
-      const card = createCard(res, userInfo.getUserInfo(), '#card-template');
+      const card = createCard(res, userInfo.getUserInfo(), cardTemplate);
       cardList.addItem(card.generateCard())
       popupAddCard.close()
     })
@@ -183,7 +185,7 @@ const popupAddCard = new PopupWithForm(popupAddCardSelector, (value) => {
       renderLoading(popupAddCardSelector, false)
     })
 })
-popupAddCard.setEventListeners()
+popupAddCard.setEventListeners();
 
 /*Открытие картинки */
 const popupWithImage = new PopupWithImage(popupWithImageSelector);
@@ -208,6 +210,6 @@ const editAvatarPopup = new PopupWithForm(popupUpdateAvatarSelector, (value) => 
       renderLoading(popupUpdateAvatarSelector, false)
     })
 })
-editAvatarPopup.setEventListeners()
-const redactAvatarBtn = document.querySelector('.profile__redact');
+editAvatarPopup.setEventListeners();
+
 
