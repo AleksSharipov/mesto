@@ -43,6 +43,9 @@ const redactAvatarBtn = document.querySelector('.profile__redact');
 const element = '.element';
 const selectorElementList = '.element__list';
 const cardTemplate = '#card-template';
+const currentDate = new Date().getFullYear();
+const futerDate = document.querySelector('.footer__author');
+futerDate.textContent = `${currentDate} Mesto Russia`
 
 const api = new Api(token, cohortId);
 
